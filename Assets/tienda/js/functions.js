@@ -61,7 +61,7 @@ $('.js-addcart-detail').each(function(){
 			return;
 		} 
 		let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-	    let ajaxUrl = base_url+'/tienda/addCarrito'; 
+	    let ajaxUrl = base_url+'/Tienda/addCarrito'; 
 	    let formData = new FormData();
 	    formData.append('id',id);
 	    formData.append('cant',cant);
@@ -165,7 +165,7 @@ if(document.querySelector("#formRegister")){
         } 
         divLoading.style.display = "flex";
         let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-        let ajaxUrl = base_url+'/tienda/registro'; 
+        let ajaxUrl = base_url+'/Tienda/registro'; 
         let formData = new FormData(formRegister);
         request.open("POST",ajaxUrl,true);
         request.send(formData);
@@ -209,7 +209,7 @@ function fntdelItem(element){
 	if(option == 1 || option == 2 ){
 
 		let request = (window.XMLHttpRequest) ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
-	    let ajaxUrl = base_url+'/tienda/delCarrito'; 
+	    let ajaxUrl = base_url+'/Tienda/delCarrito'; 
 	    let formData = new FormData();
 	    formData.append('id',idpr);
 	    formData.append('option',option);
