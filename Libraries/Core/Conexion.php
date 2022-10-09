@@ -4,6 +4,7 @@ class Conexion{
 
 	public function __construct(){
 		$connectionString = "mysql:host=".DB_HOST.";dbname=".DB_NAME.";port=".DB_PORT;
+		mysql://${{ MYSQLUSER }}:${{ MYSQLPASSWORD }}@${{ MYSQLHOST }}:${{ MYSQLPORT }}/${{ MYSQLDATABASE }}
 		try{
 			$this->conect = new PDO($connectionString, DB_USER, DB_PASSWORD);
 			$this->conect->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
