@@ -1,16 +1,16 @@
 <?php 
-	const BASE_URL = "http://libreriautp-production-c982.up.railway.app";
+	const BASE_URL = "https://libreriautp-production-c982.up.railway.app";
 
 	//Zona horaria
 	date_default_timezone_set('America/Bogota');
 
 	//Datos de conexión a Base de Datos
-	const DB_HOST = "containers-us-west-72.railway.app";
+	const DB_HOST = "containers-us-west-100.railway.app";
 	const DB_NAME = "railway";
 	const DB_USER = "root";
-	const DB_PASSWORD = "elHRvOGsgoyWm2xZnK7M";
+	const DB_PASSWORD = "EFfueSTHHCkce9YLgMFQ";
 	const DB_CHARSET = "utf8";
-	const DB_PORT= "5946";
+	const DB_PORT= "6631";
 
 	//Para envío de correo
 	const ENVIRONMENT = 1; // Local: 0, Produccón: 1;
