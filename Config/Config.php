@@ -1,5 +1,5 @@
 <?php 
-	const BASE_URL = "libreriautp-production-c982.up.railway.app/libreria_utp";
+	const BASE_URL = "http://libreriautp-production-c982.up.railway.app";
 
 	//Zona horaria
 	date_default_timezone_set('America/Bogota');
