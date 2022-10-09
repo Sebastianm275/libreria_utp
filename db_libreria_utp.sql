@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 05-10-2022 a las 20:10:55
+-- Tiempo de generación: 09-10-2022 a las 16:32:53
 -- Versión del servidor: 8.0.27
 -- Versión de PHP: 7.4.26
 
@@ -65,14 +65,16 @@ CREATE TABLE IF NOT EXISTS `contacto` (
   `useragent` text CHARACTER SET utf8mb4 COLLATE utf8mb4_swedish_ci NOT NULL,
   `datecreated` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `contacto`
 --
 
 INSERT INTO `contacto` (`id`, `nombre`, `email`, `mensaje`, `ip`, `dispositivo`, `useragent`, `datecreated`) VALUES
-(1, 'Fernando Herrera', 'toolsfordeveloper@gmail.com', 'Mensaje del primer suscriptor!', '127.0.0.1', 'PC', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0', '2021-08-20 04:06:18');
+(1, 'Fernando Herrera', 'toolsfordeveloper@gmail.com', 'Mensaje del primer suscriptor!', '127.0.0.1', 'PC', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101 Firefox/91.0', '2021-08-20 04:06:18'),
+(2, 'Sebastian', 'santibau2000@gmail.com', 'hola, como va', '::1', 'PC', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36', '2022-10-05 17:09:13'),
+(3, 'Sebastian', 'santibau2000@gmail.com', 'estos fastidiosos coman mire#$#$', '::1', 'PC', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/105.0.0.0 Safari/537.36', '2022-10-05 17:10:13');
 
 -- --------------------------------------------------------
 
@@ -90,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `detalle_pedido` (
   PRIMARY KEY (`id`),
   KEY `pedidoid` (`pedidoid`),
   KEY `productoid` (`productoid`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `detalle_pedido`
@@ -100,7 +102,9 @@ INSERT INTO `detalle_pedido` (`id`, `pedidoid`, `productoid`, `precio`, `cantida
 (5, 4, 4, '5.00', 1),
 (6, 5, 4, '5.00', 1),
 (7, 6, 4, '5.00', 1),
-(8, 7, 4, '5.00', 1);
+(8, 7, 4, '5.00', 1),
+(9, 8, 5, '18.00', 1),
+(10, 9, 4, '5.00', 1);
 
 -- --------------------------------------------------------
 
@@ -197,7 +201,7 @@ CREATE TABLE IF NOT EXISTS `pedido` (
   PRIMARY KEY (`idpedido`),
   KEY `personaid` (`personaid`),
   KEY `tipopagoid` (`tipopagoid`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `pedido`
@@ -210,7 +214,9 @@ INSERT INTO `pedido` (`idpedido`, `referenciacobro`, `idtransaccionpaypal`, `dat
 (4, NULL, NULL, NULL, 6, '2022-10-04 10:49:43', '5.00', '10.00', 2, 'd, d', 'Pendiente'),
 (5, NULL, NULL, NULL, 6, '2022-10-04 12:25:29', '5.00', '10.00', 2, 'd, d', 'Pendiente'),
 (6, NULL, NULL, NULL, 6, '2022-10-04 14:15:16', '5.00', '10.00', 2, 'd, s', 'Pendiente'),
-(7, '6747476', NULL, NULL, 10, '2022-10-05 13:40:39', '5.00', '10.00', 3, 'mi casa, utp', 'Completo');
+(7, '6747476', NULL, NULL, 10, '2022-10-05 13:40:39', '5.00', '10.00', 3, 'mi casa, utp', 'Completo'),
+(8, NULL, NULL, NULL, 6, '2022-10-05 17:13:18', '5.00', '23.00', 2, 's, s', 'Pendiente'),
+(9, NULL, NULL, NULL, 6, '2022-10-05 17:14:04', '5.00', '10.00', 5, 's, s', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -298,7 +304,7 @@ CREATE TABLE IF NOT EXISTS `persona` (
   `status` int NOT NULL DEFAULT '1',
   PRIMARY KEY (`idpersona`),
   KEY `rolid` (`rolid`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_swedish_ci;
 
 --
 -- Volcado de datos para la tabla `persona`
@@ -310,11 +316,12 @@ INSERT INTO `persona` (`idpersona`, `identificacion`, `nombres`, `apellidos`, `t
 (3, '84654864', 'Ricardo', 'Hernández Pérez', 4687987, 'hr@info.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', '468798', 'Ricardo HP', 'Ciudad de Guatemala', NULL, 1, '2021-08-20 03:41:28', 1),
 (4, '798465877', 'Fernando', 'Guerra', 468498, 'fer@info.com', '8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92', NULL, NULL, NULL, NULL, 4, '2021-08-21 18:07:00', 1),
 (5, '1000230214324', 'Sebastian', 'Menezes', 231242412342, 'seb.mena@gmail.com', 'b6667a020f42cc9c70bbc94df4517ea34f11f77e8e70cef7cf616c3395d643ea', NULL, NULL, NULL, NULL, 3, '2022-10-02 10:09:02', 1),
-(6, '32432424', 'Santiago', 'Bautista', 234234234, 'santibau2000@gmail.com', '4c42891f7074c3c2f086b12abdf0ec62d5cefd16fc1a34600430fcfa89bb3fac', NULL, NULL, NULL, NULL, 1, '2022-10-02 10:14:39', 1),
+(6, '32432424', 'Santiago', 'Bautista', 234234234, 'santibau2000@gmail.com', '4c42891f7074c3c2f086b12abdf0ec62d5cefd16fc1a34600430fcfa89bb3fac', NULL, NULL, NULL, '1329a667595210a9711a-f5313940df474361a6f3-41457d766109d6ce14aa-eda447e5ef45e88a32fc', 1, '2022-10-02 10:14:39', 1),
 (7, NULL, 'Sas', 'Sas', 2323, 'sas@sas.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', NULL, NULL, NULL, NULL, 3, '2022-10-03 15:50:38', 1),
 (8, NULL, 'Socorro', 'Jesus', 3434, 'socorro@jesus.com', 'a54e71f0e17f5aaf7946e66ab42cf3b1fd4e61d60581736c9f0eb1c3f794eb7c', NULL, NULL, NULL, NULL, 3, '2022-10-03 15:56:22', 1),
 (9, NULL, 'Gato', 'Perro', 232323, 'gato@perro.com', '5994471abb01112afcc18159f6cc74b4f511b99806da59b3caf5a9c173cacfc5', NULL, NULL, NULL, NULL, 3, '2022-10-03 16:07:39', 1),
-(10, NULL, 'Doriwn', 'Mnm', 452452542, 'sa@sa.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', NULL, NULL, NULL, NULL, 3, '2022-10-05 13:39:26', 1);
+(10, NULL, 'Doriwn', 'Mnm', 452452542, 'sa@sa.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', NULL, NULL, NULL, NULL, 3, '2022-10-05 13:39:26', 1),
+(11, NULL, 'Marco', 'Antonio', 1231, 'antonio@antonio.com', '6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b', NULL, NULL, NULL, NULL, 3, '2022-10-05 15:22:54', 1);
 
 -- --------------------------------------------------------
 
